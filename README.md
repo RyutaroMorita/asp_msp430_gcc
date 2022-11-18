@@ -1,2 +1,0 @@
-# asp_msp430_gcc
-TOPPERS/ASP for MSP-EXP430F5529LP
