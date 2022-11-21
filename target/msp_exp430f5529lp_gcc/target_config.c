@@ -190,6 +190,14 @@ target_initialize(void)
         UCS_CLOCK_DIVIDER_1
     );
 
+    /*
+     *  クロックリクエスト機能の無効化
+     */
+    UCS_disableClockRequest(UCS_ACLK);
+    UCS_disableClockRequest(UCS_SMCLK);
+    UCS_disableClockRequest(UCS_MCLK);
+    UCS_disableClockRequest(UCS_MODOSC);
+
     // for Debug
     aclk=UCS_getACLK();
     mclk=UCS_getMCLK();

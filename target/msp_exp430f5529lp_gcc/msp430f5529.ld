@@ -68,6 +68,8 @@ SECTIONS
 		KEEP (*(.eh_frame))
 	} > ROM
 
+	.subtext : {} > ROM
+
 	__idata_start = . ;
 	.data : AT(__idata_start)
 	{
