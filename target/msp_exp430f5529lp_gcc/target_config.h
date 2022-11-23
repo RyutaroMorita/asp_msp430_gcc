@@ -51,11 +51,6 @@
 #define TOPPERS_TARGET_CONFIG_H
 
 /*
- *  ターゲットシステムのハードウェア資源の定義
- */
-//#include "dve68k.h"
-
-/*
  *  ターゲット定義のオブジェクト属性
  */
 #define TARGET_INHATR	TA_NONKERNEL	/* カーネル管理外の割込み */
@@ -143,10 +138,6 @@ x_probe_int(INTNO intno)
 
 /*
  *  割込み要求ラインの属性の設定
- *
- *  DVE-68K/40のIRCでは，割込み要求ラインの割込み優先度にNMIを指定する
- *  ことができため，-7を与えるとNMIに設定されることとする（ターゲット定
- *  義の拡張）．
  */
 extern void	x_config_int(INTNO intno, ATR intatr, PRI intpri);
 
@@ -165,8 +156,6 @@ i_begin_int(INTNO intno)
 
 /*
  *  割込みハンドラの出口で必要なIRC操作
- *
- *  DVE-68K/40では必要なIRC操作はない．
  */
 Inline void
 i_end_int(INTNO intno)
@@ -190,12 +179,6 @@ extern void	target_initialize(void);
 extern void	target_exit(void) NoReturn;
 
 #endif /* TOPPERS_MACRO_ONLY */
-
-/*
- *  微少時間待ちのための定義（本来はSILのターゲット依存部）
- */
-#define SIL_DLY_TIM1	420
-#define SIL_DLY_TIM2	90
 
 /*
  *  プロセッサ依存モジュール（msp-exp430f5529lp用）
